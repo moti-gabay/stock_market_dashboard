@@ -36,32 +36,37 @@ export type NormalizedStockType = {
 };
 
 export type StockUIType = {
-    header: {
-        name: string;
-        symbol: string;
-        price: number;
-        currency: string;
-        exchange: string;
-    };
-
-    stats: {
-        change: number;
-        changePercent: number;
-        high: number;
-        low: number;
-        volume: number;
-    };
-
-    chart: {
-        time: string;
-        open: number;
-        high: number;
-        low: number;
-        close: number;
-    }[];
-
-    volumeChart: {
-        time: string;
-        value: number;
-    }[];
+    header: HeaderType;
+    stats: StatsType;
+    chart: ChartType[];
+    volumeChart: VolumeChartType[];
 };
+
+export type ChartType = {
+    time: string;
+    open: number;
+    high: number;
+    low: number;
+    close: number;
+}
+
+export type StatsType = {
+    change: number;
+    changePercent: number;
+    high: number;
+    low: number;
+    volume: number;
+}
+export type HeaderType = {
+    name: string;
+    symbol: string;
+    price: number;
+    currency: string;
+    exchange: string;
+    
+}
+
+export type VolumeChartType = {
+    time: string;
+    value: number;
+}
