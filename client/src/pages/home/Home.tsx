@@ -4,18 +4,18 @@ import Metrics from "../../components/Metrics/Metrics";
 import News from "../../components/news/News";
 import { useStock } from "../../hooks/useStock";
 import { normalizeStock, toStockUI } from "../../utils/utils"
-export const Home = () => {
-    const { data, isLoading, isError, error } = useStock('AAPL');
 
-    const {header,stats,chart} = toStockUI(normalizeStock(data.data))
-    console.log((stats));
+export const Home = ({ data }: { data: any }) => {
+
+
+    const { header, stats, chart, volumeChart } = toStockUI(data.data || [])
 
     return <div>
-        Home
+
         <Header stats={stats} header={header} />
-        <MainChart  chart={chart}/>
-        <Metrics />
-        <News />
+        <MainChart chart={chart} />
+        <Metrics {...volumeChart[0]} />
+        <News {...volumeChart[0]} />
     </div>
 
 }

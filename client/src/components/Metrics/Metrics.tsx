@@ -1,4 +1,6 @@
-export const Metrics = () => {
+import type { VolumeChartType } from "../../types/types";
+
+export const Metrics = (volumeChart:VolumeChartType) => {    
 
     return <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
         <div className="p-3 bg-gray-50 rounded-lg">
@@ -8,7 +10,7 @@ export const Metrics = () => {
 
         <div className="p-3 bg-gray-50 rounded-lg">
             <p className="text-gray-500 text-sm">Volume</p>
-            <p className="font-bold">45M</p>
+            <p className="font-bold">{volumeChart.value}M</p>
         </div>
     </div>
 
